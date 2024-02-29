@@ -8,7 +8,9 @@ version = "0.1.0"
 description = "Custom Input Handler for Python and Beyond..."
 authors = [{name = "vfm-sb", email = "vfm-sb@proton.me"}]
 requires-python = ">=3.11.6"
-dependencies = []
+dependencies = [
+  "pyvutils",
+]
 readme = "README.md"
 license = {file = "LICENCE"}
 keywords = ["ihandler", "input handler"]
