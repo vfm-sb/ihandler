@@ -1,30 +1,52 @@
+"""
+String Inputs
+"""
+
 
 # Local Modules
 import pyvutils
-from ihandler.base_input import BaseInput
 
 
-class StrictStringInput(BaseInput):
-    def input_processor(self) -> str:
-        user_input = super().input_processor()
-        pyvutils.assert_input(user_input)
-        return user_input.strip()
+def unrestricted_string(prompt: str="") -> str:
+    return input(prompt)
 
 
-class UnrestrictedStringInput(BaseInput):
-    pass
+def strict_string(prompt: str="") -> str:
+    user_input = input(prompt)
+    pyvutils.assert_input(user_input)
+    return user_input.strip()
 
 
-class LowercaseStringInput(StrictStringInput):
-    def input_processor(self) -> str:
-        user_input = super().input_processor()
-        return user_input.lower()
+def lowercase_string(prompt: str="") -> str:
+    user_input = strict_string(prompt)
+    return user_input.lower()
 
 
-class UppercaseStringInput(StrictStringInput):
-    def input_processor(self) -> str:
-        user_input = super().input_processor()
-        return user_input.upper()
+def uppercase_string(prompt: str="") -> str:
+    user_input = strict_string(prompt)
+    return user_input.upper()
+
+
+def multiple_strings(
+    prompt: str="",
+    exit_keywords: list | None = None,
+    has_duplicates: bool = True
+) -> list[str]:
+    if not exit_keywords:
+        exit_keywords = ["done", "end", "finish", "stop"]
+    strings = []
+    while True:
+        user_input = lowercase_string(prompt)
+        if user_input in exit_keywords:
+            break
+        if "," in user_input:
+            values = pyvutils.split_by_comma(user_input)
+            strings.extend(values)
+        else:
+            strings.append(user_input)
+    if not has_duplicates:
+        strings = list(set([strings]))
+    return strings
 
 
 if __name__ == "__main__":
