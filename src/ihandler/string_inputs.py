@@ -2,35 +2,34 @@
 String Inputs
 """
 
-
 # Local Modules
 import pyvutils
 
 
-def unrestricted_string(prompt: str="") -> str:
+def unrestricted_string(prompt: str = "") -> str:
     return input(prompt)
 
 
-def strict_string(prompt: str="") -> str:
+def strict_string(prompt: str = "") -> str:
     user_input = input(prompt)
     pyvutils.assert_input(user_input)
     return user_input.strip()
 
 
-def lowercase_string(prompt: str="") -> str:
+def lowercase_string(prompt: str = "") -> str:
     user_input = strict_string(prompt)
     return user_input.lower()
 
 
-def uppercase_string(prompt: str="") -> str:
+def uppercase_string(prompt: str = "") -> str:
     user_input = strict_string(prompt)
     return user_input.upper()
 
 
 def multiple_strings(
-    prompt: str="",
+    prompt: str = "",
     exit_keywords: list | None = None,
-    has_duplicates: bool = True
+    duplicates: bool = True
 ) -> list[str]:
     if not exit_keywords:
         exit_keywords = ["done", "end", "finish", "stop"]
@@ -44,8 +43,8 @@ def multiple_strings(
             strings.extend(values)
         else:
             strings.append(user_input)
-    if not has_duplicates:
-        strings = list(set([strings]))
+    if not duplicates:
+        strings = pyvutils.remove_duplicates(strings)
     return strings
 
 

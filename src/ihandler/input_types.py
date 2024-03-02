@@ -1,6 +1,10 @@
-from ihandler.string_inputs import (
+from .string_inputs import (
     strict_string, unrestricted_string, lowercase_string, uppercase_string,
     multiple_strings,
+)
+
+from .numeric_inputs import (
+    strict_numeric, loose_numeric, strict_integer, loose_integer,
 )
 
 
@@ -10,4 +14,8 @@ INPUT_TYPES = {
     "lower-string": lowercase_string,
     "upper-string": uppercase_string,
     "multiple-strings": multiple_strings,
+    "numeric": strict_numeric,
+    "integer": strict_integer,
+    "loose-numeric": loose_numeric,
+    "loose-integer": loose_integer,
 }

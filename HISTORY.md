@@ -2,12 +2,17 @@
 
 <br>
 
+## 0.1.1 (2024/03/02)
+
+- Complete Design Change: Functions instead of Classes
+- String Inputs:
+    - `strict_string`, `unrestricted_string`, `lowercase_string`, `uppercase_string`,
+    - `multiple_strings`,
+- Numeric Inputs:
+    - `strict_numeric`, `loose_numeric`, `strict_integer`, `loose_integer`,
+
+
 ## 0.1.0 (2024/02/27)
 
 - Initial Running Version
-- Set Core Design & Included Required Elements
-- Available for Limited Use & Initial Tests
-    - `BaseInput`
-    - `StrictStringInput`,
-    - `LowercaseStringInput`, `UppercaseStringInput`
 - Initial Versions of `InputHandler` Class & `ihandler` Function

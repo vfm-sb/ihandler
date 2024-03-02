@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "ihandler"
-version = "0.1.0"
+version = "0.1.1"
 description = "Custom Input Handler for Python and Beyond..."
 authors = [{name = "vfm-sb", email = "vfm-sb@proton.me"}]
 requires-python = ">=3.11.6"
@@ -25,9 +25,6 @@ classifiers = [
   "Natural Language :: English"
 ]
 
-#[project.urls]
-# Homepage = ""
-# Documentation = ""
-# Repository = ""
-# Issues = ""
-# Changelog = ""
+[project.urls]
+Repository = "https://github.com/vfm-sb/ihandler"
+Changelog = "https://github.com/vfm-sb/ihandler/blob/main/SUPPORT.md"
