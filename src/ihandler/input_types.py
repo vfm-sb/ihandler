@@ -7,6 +7,8 @@ from .numeric_inputs import (
     strict_numeric, loose_numeric, strict_integer, loose_integer,
 )
 
+from .choice_inputs import choice
+
 
 INPUT_TYPES = {
     "strict-string": strict_string,
@@ -18,4 +20,5 @@ INPUT_TYPES = {
     "integer": strict_integer,
     "loose-numeric": loose_numeric,
     "loose-integer": loose_integer,
+    "choice": choice,
 }
