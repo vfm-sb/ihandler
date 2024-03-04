@@ -7,7 +7,10 @@ from .numeric_inputs import (
     strict_numeric, loose_numeric, strict_integer, loose_integer,
 )
 
-from .choice_inputs import choice
+from .choice_inputs import (
+    choice, alphanumeric_choice, numeric_choice,
+    lowercase_choice, uppercase_choice, letter_choice,
+)
 
 
 INPUT_TYPES = {
@@ -21,4 +24,9 @@ INPUT_TYPES = {
     "loose-numeric": loose_numeric,
     "loose-integer": loose_integer,
     "choice": choice,
+    "alphanumeric-choice": alphanumeric_choice,
+    "numeric-choice": numeric_choice,
+    "lowercase-choice": lowercase_choice,
+    "uppercase-choice": uppercase_choice,
+    "letter-choice": letter_choice,
 }

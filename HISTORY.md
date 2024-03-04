@@ -2,6 +2,14 @@
 
 <br>
 
+## 0.1.2 (2024/03/04)
+
+- Choice Inputs:
+    - `choice()`
+    - `alphanumeric_choice()`, `numeric_choice()`
+    - `lowercase_choice()`, `uppercase_choice()`, `letter_choice()`
+
+
 ## 0.1.1 (2024/03/02)
 
 - Complete Design Change: Functions instead of Classes

@@ -19,6 +19,27 @@ def choice(prompt: str, choices: list, types: list) -> str:
     return choices[choice_index]
 
 
+def alphanumeric_choice(prompt: str, choices: list) -> str:
+    types = ["numeric", "lowercase", "uppercase"]
+    return choice(prompt, choices, types)
+
+
+def numeric_choice(prompt: str, choices: list) -> str:
+    return choice(prompt, choices, ["numeric"])
+
+
+def lowercase_choice(prompt: str, choices: list) -> str:
+    return choice(prompt, choices, ["lowercase"])
+
+
+def uppercase_choice(prompt: str, choices: list) -> str:
+    return choice(prompt, choices, ["uppercase"])
+
+
+def letter_choice(prompt: str, choices: list) -> str:
+    return choice(prompt, choices, ["lowercase", "uppercase"])
+
+
 def _assert_user_choice(user_choice: int | str, valid_choices: list) -> None:
     if user_choice not in pyvutils.flatten_list(valid_choices):
         raise ValueError("Invalid Choice")
