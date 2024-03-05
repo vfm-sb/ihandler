@@ -2,6 +2,14 @@
 
 <br>
 
+## 0.1.3 (2024/03/05)
+
+- Currency Inputs:
+    - `currency_code()`
+    - `alphabetic_currency_code()`
+    - `numeric_currency_code()`
+
+
 ## 0.1.2 (2024/03/04)
 
 - Choice Inputs:

@@ -12,6 +12,10 @@ from .choice_inputs import (
     lowercase_choice, uppercase_choice, letter_choice,
 )
 
+from .currency_inputs import (
+    currency_code, alphabetic_currency_code, numeric_currency_code
+)
+
 
 INPUT_TYPES = {
     "strict-string": strict_string,
@@ -29,4 +33,7 @@ INPUT_TYPES = {
     "lowercase-choice": lowercase_choice,
     "uppercase-choice": uppercase_choice,
     "letter-choice": letter_choice,
+    "currency-code": currency_code,
+    "alphabetic-currency-code": alphabetic_currency_code,
+    "numeric-currency-code": numeric_currency_code,
 }
