@@ -16,6 +16,11 @@ def strict_string(prompt: str = "") -> str:
     return user_input.strip()
 
 
+def loose_string(prompt: str = "") -> str:
+    user_input = input(prompt)
+    return user_input.strip()
+
+
 def lowercase_string(prompt: str = "") -> str:
     user_input = strict_string(prompt)
     return user_input.lower()
@@ -24,6 +29,11 @@ def lowercase_string(prompt: str = "") -> str:
 def uppercase_string(prompt: str = "") -> str:
     user_input = strict_string(prompt)
     return user_input.upper()
+
+
+def loose_lowercase_string(prompt: str = "") -> str:
+    user_input = loose_string(prompt)
+    return user_input.lower()
 
 
 def multiple_strings(
