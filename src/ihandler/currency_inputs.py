@@ -15,11 +15,11 @@ def currency_code(prompt: str) -> str:
 
 def alphabetic_currency_code(prompt: str) -> str:
     user_input = uppercase_string(prompt)
-    pyvutils.assert_iso_alphabetic_code(user_input)
+    pyvutils.assert_alphabetic_currency_code(user_input)
     return user_input
 
 
 def numeric_currency_code(prompt: str) -> str:
     user_input = strict_string(prompt)
-    pyvutils.assert_iso_alphabetic_code(user_input)
+    pyvutils.assert_numeric_currency_code(user_input)
     return user_input

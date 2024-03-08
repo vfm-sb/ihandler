@@ -1,6 +1,7 @@
 # Compiled Python
 __pycache__/
 .pytest_cache/
+build/
 
 # Virtual Environment
 .venv/
