@@ -41,7 +41,7 @@ def letter_choice(prompt: str, choices: list) -> str:
 
 
 def _assert_user_choice(user_choice: int | str, valid_choices: list) -> None:
-    if user_choice not in pyvutils.flatten_list(valid_choices):
+    if user_choice not in pyvutils.flatten(valid_choices):
         raise ValueError("Invalid Choice")
 
 
