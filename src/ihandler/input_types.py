@@ -1,21 +1,34 @@
 from .string_inputs import (
-    unrestricted_string, strict_string, loose_string,
-    lowercase_string, uppercase_string, loose_lowercase_string,
+    unrestricted_string,
+    strict_string,
+    loose_string,
+    lowercase_string,
+    uppercase_string,
+    loose_lowercase_string,
     multiple_strings
 )
 
 from .numeric_inputs import (
-    strict_numeric, loose_numeric, strict_integer, loose_integer,
+    strict_numeric,
+    loose_numeric,
+    strict_integer,
+    loose_integer,
     multiple_numerics
 )
 
 from .choice_inputs import (
-    choice, alphanumeric_choice, numeric_choice,
-    lowercase_choice, uppercase_choice, letter_choice
+    choice,
+    alphanumeric_choice,
+    numeric_choice,
+    lowercase_choice,
+    uppercase_choice,
+    letter_choice
 )
 
 from .currency_inputs import (
-    currency_code, alphabetic_currency_code, numeric_currency_code
+    currency_code,
+    alphabetic_currency_code,
+    numeric_currency_code
 )
 
 
