@@ -9,7 +9,12 @@ description = "Custom Input Handler for Python and Beyond..."
 authors = [{name = "vfm-sb", email = "vfm-sb@proton.me"}]
 requires-python = ">=3.11.8"
 dependencies = [
-  "pyvutils",
+  "cerrlib==0.1.1",
+  "iniconfig==2.0.0",
+  "packaging==24.0",
+  "pluggy==1.4.0",
+  "pytest==8.1.1",
+  "pyvutils==0.1.5",
 ]
 readme = "README.md"
 license = {file = "LICENCE"}
