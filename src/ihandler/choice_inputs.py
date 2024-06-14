@@ -19,6 +19,14 @@ def choice(prompt: str, choices: list, types: list) -> str:
     return choices[choice_index]
 
 
+def choice2d(prompt: str, choices: list[list], types: list) -> str:
+    user_choice = loose_integer(prompt)
+    valid_choices = _get_valid_choices(choices, types)
+    _assert_user_choice(user_choice.lower(), valid_choices)
+    choice_index = _get_2d_choice_index(user_choice, valid_choices)
+    return choices[choice_index][0]
+
+
 def alphanumeric_choice(prompt: str, choices: list) -> str:
     types = ["numeric", "lowercase", "uppercase"]
     return choice(prompt, choices, types)
@@ -63,3 +71,19 @@ def _get_choice_index(user_choice: int | str, valid_choices: list) -> Optional[i
         if user_choice in choice_group:
             return choice_group.index(user_choice)
     return None
+
+
+def _get_2d_choice_index(user_choice: int | str, valid_choices: list) -> Optional[int]:
+    user_choice = user_choice.lower()
+    for i, choice_group in enumerate(valid_choices):
+        if isinstance(choice_group, list):
+            for j, subgroup in enumerate(choice_group):
+                if user_choice in subgroup:
+                    return j
+        elif user_choice in choice_group:
+            return i
+    return None
+
+
+if __name__ == "__main__":
+    pass
