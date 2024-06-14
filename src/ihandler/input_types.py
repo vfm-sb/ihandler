@@ -18,6 +18,7 @@ from .numeric_inputs import (
 
 from .choice_inputs import (
     choice,
+    choice2d,
     alphanumeric_choice,
     numeric_choice,
     lowercase_choice,
@@ -46,6 +47,7 @@ INPUT_TYPES = {
     "loose-integer": loose_integer,
     "multiple-numerics": multiple_numerics,
     "choice": choice,
+    "choice2d": choice2d,
     "alphanumeric-choice": alphanumeric_choice,
     "numeric-choice": numeric_choice,
     "lowercase-choice": lowercase_choice,

@@ -2,6 +2,12 @@
 
 <br>
 
+## 0.1.4 (2024/06/14)
+
+- Choice Inputs:
+    - `choice2d()`
+
+
 ## 0.1.3 (2024/03/05)
 
 - Currency Inputs:
