@@ -74,14 +74,16 @@ def _get_choice_index(user_choice: int | str, valid_choices: list) -> Optional[i
 
 
 def _get_2d_choice_index(user_choice: int | str, valid_choices: list) -> Optional[int]:
-    user_choice = user_choice.lower()
-    for i, choice_group in enumerate(valid_choices):
-        if isinstance(choice_group, list):
-            for j, subgroup in enumerate(choice_group):
+    def is_nested_list(lst: list) -> bool:
+        return any(isinstance(item, list) for item in lst)
+
+    for choice_group in valid_choices:
+        if is_nested_list(choice_group):
+            for subgroup in choice_group:
                 if user_choice in subgroup:
-                    return j
+                    return subgroup.index(user_choice)
         elif user_choice in choice_group:
-            return i
+            return choice_group.index(user_choice)
     return None
 
 
