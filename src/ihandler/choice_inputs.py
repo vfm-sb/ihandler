@@ -11,29 +11,29 @@ import pyvutils
 from .numeric_inputs import loose_integer
 
 
-def choice(prompt: str, choices: list, types: list) -> str:
+def choice(prompt: str, choices: list, types: list, start: int = 1) -> str:
     user_choice = loose_integer(prompt)
-    valid_choices = _get_valid_choices(choices, types)
+    valid_choices = _get_valid_choices(choices, types, start)
     _assert_user_choice(user_choice, valid_choices)
     choice_index = _get_choice_index(user_choice, valid_choices)
     return choices[choice_index]
 
 
-def choice2d(prompt: str, choices: list[list], types: list) -> str:
+def choice2d(prompt: str, choices: list[list], types: list, start: int = 1) -> str:
     user_choice = loose_integer(prompt)
-    valid_choices = _get_valid_choices(choices, types)
+    valid_choices = _get_valid_choices(choices, types, start)
     _assert_user_choice(user_choice, valid_choices)
     choice_index = _get_2d_choice_index(user_choice, valid_choices)
     return choices[choice_index][0]
 
 
-def alphanumeric_choice(prompt: str, choices: list) -> str:
+def alphanumeric_choice(prompt: str, choices: list, start: int = 1) -> str:
     types = ["numeric", "lowercase", "uppercase"]
-    return choice(prompt, choices, types)
+    return choice(prompt, choices, types, start)
 
 
-def numeric_choice(prompt: str, choices: list) -> str:
-    return choice(prompt, choices, ["numeric"])
+def numeric_choice(prompt: str, choices: list, start: int = 1) -> str:
+    return choice(prompt, choices, ["numeric"], start)
 
 
 def lowercase_choice(prompt: str, choices: list) -> str:
@@ -53,12 +53,12 @@ def _assert_user_choice(user_choice: int | str, valid_choices: list) -> None:
         raise ValueError("Invalid Choice")
 
 
-def _get_valid_choices(choices: list, types: list) -> list:
+def _get_valid_choices(choices: list, types: list, start: int = 1) -> list:
     number_of_choices = len(choices)
     options = [choices]
     for option_type in types:
         if option_type == "numeric":
-            options.append(list(range(1, number_of_choices + 1)))
+            options.append(list(range(start, number_of_choices + start)))
         elif option_type == "lowercase":
             options.append(list(string.ascii_lowercase[:number_of_choices]))
         elif option_type == 'uppercase':
