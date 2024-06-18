@@ -39,13 +39,21 @@ def loose_lowercase_string(prompt: str = "") -> str:
 def multiple_strings(
     prompt: str = "",
     exit_keywords: list | None = None,
+    casemode: str = "lower",
     duplicates: bool = True
 ) -> list[str]:
+    if casemode == "lower":
+        input_function = lowercase_string
+    elif casemode == "upper":
+        input_function = uppercase_string
+    elif casemode == "normal":
+        input_function = strict_string
+
     if not exit_keywords:
         exit_keywords = ["done", "end", "finish", "stop"]
     strings = []
     while True:
-        user_input = lowercase_string(prompt)
+        user_input = input_function(prompt)
         if user_input in exit_keywords:
             break
         if "," in user_input:
