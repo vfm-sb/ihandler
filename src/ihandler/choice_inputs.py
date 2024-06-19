@@ -48,6 +48,15 @@ def letter_choice(prompt: str, choices: list) -> str:
     return choice(prompt, choices, ["lowercase", "uppercase"])
 
 
+def binary_choice(prompt: str, choices: list[list], initialmode: bool = False) -> str:
+    if initialmode:
+        choices = [[choice] for choice in choices]
+        for subgroup in choices:
+            subgroup.append(subgroup[0][0].lower())
+        return choice2d(prompt, choices, types=["numeric"], case_sensitive=False, start=0)
+    return choice(prompt, choices, types=["numeric"], case_sensitive=False, start=0)
+
+
 def _assert_user_choice(user_choice: int | str, valid_choices: list, case_sensitive: bool = True) -> None:
     if not case_sensitive and isinstance(user_choice, str):
         user_choice = user_choice.lower()

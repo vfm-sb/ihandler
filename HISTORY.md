@@ -2,6 +2,12 @@
 
 <br>
 
+## 0.1.4.1 (2024/06/19)
+
+- Choice Inputs:
+    - `binary_choice()`
+
+
 ## 0.1.4 (2024/06/14)
 
 - Choice Inputs:

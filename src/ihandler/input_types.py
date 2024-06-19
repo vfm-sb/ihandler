@@ -23,7 +23,8 @@ from .choice_inputs import (
     numeric_choice,
     lowercase_choice,
     uppercase_choice,
-    letter_choice
+    letter_choice,
+    binary_choice
 )
 
 from .currency_inputs import (
@@ -53,6 +54,7 @@ INPUT_TYPES = {
     "lowercase-choice": lowercase_choice,
     "uppercase-choice": uppercase_choice,
     "letter-choice": letter_choice,
+    "binary-choice": binary_choice,
     "currency-code": currency_code,
     "alphabetic-currency-code": alphabetic_currency_code,
     "numeric-currency-code": numeric_currency_code,
