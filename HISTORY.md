@@ -2,6 +2,15 @@
 
 <br>
 
+## 0.1.4.2 (2024/06/19)
+
+- Bugfix: Choice Inputs >> `_get_2d_choice_index()`
+    - Now Returns Correct Index If a Keyword Input Received.
+    - Utilities Using `_get_2d_choice_index()` **Require** v0.1.4.2!
+        - `choice2d()`
+        - `binary_choice()`
+
+
 ## 0.1.4.1 (2024/06/19)
 
 - Choice Inputs:

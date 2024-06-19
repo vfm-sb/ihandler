@@ -96,7 +96,7 @@ def _get_2d_choice_index(user_choice: int | str, valid_choices: list, case_sensi
         if is_nested_list(choice_group):
             for subgroup in choice_group:
                 if user_choice in subgroup:
-                    return subgroup.index(user_choice)
+                    return choice_group.index(subgroup)
         elif user_choice in choice_group:
             return choice_group.index(user_choice)
     return None
