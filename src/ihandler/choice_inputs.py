@@ -11,19 +11,19 @@ import pyvutils
 from .numeric_inputs import loose_integer
 
 
-def choice(prompt: str, choices: list, types: list, start: int = 1) -> str:
+def choice(prompt: str, choices: list, types: list, case_sensitive: bool = True, start: int = 1) -> str:
     user_choice = loose_integer(prompt)
     valid_choices = _get_valid_choices(choices, types, start)
-    _assert_user_choice(user_choice, valid_choices)
-    choice_index = _get_choice_index(user_choice, valid_choices)
+    _assert_user_choice(user_choice, valid_choices, case_sensitive)
+    choice_index = _get_choice_index(user_choice, valid_choices, case_sensitive)
     return choices[choice_index]
 
 
-def choice2d(prompt: str, choices: list[list], types: list, start: int = 1) -> str:
+def choice2d(prompt: str, choices: list[list], types: list, case_sensitive: bool = True, start: int = 1) -> str:
     user_choice = loose_integer(prompt)
     valid_choices = _get_valid_choices(choices, types, start)
-    _assert_user_choice(user_choice, valid_choices)
-    choice_index = _get_2d_choice_index(user_choice, valid_choices)
+    _assert_user_choice(user_choice, valid_choices, case_sensitive)
+    choice_index = _get_2d_choice_index(user_choice, valid_choices, case_sensitive)
     return choices[choice_index][0]
 
 
@@ -48,7 +48,9 @@ def letter_choice(prompt: str, choices: list) -> str:
     return choice(prompt, choices, ["lowercase", "uppercase"])
 
 
-def _assert_user_choice(user_choice: int | str, valid_choices: list) -> None:
+def _assert_user_choice(user_choice: int | str, valid_choices: list, case_sensitive: bool = True) -> None:
+    if not case_sensitive and isinstance(user_choice, str):
+        user_choice = user_choice.lower()
     if user_choice not in pyvutils.flatten(valid_choices):
         raise ValueError("Invalid Choice")
 
