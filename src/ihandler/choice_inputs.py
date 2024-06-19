@@ -66,17 +66,21 @@ def _get_valid_choices(choices: list, types: list, start: int = 1) -> list:
     return options
 
 
-def _get_choice_index(user_choice: int | str, valid_choices: list) -> Optional[int]:
+def _get_choice_index(user_choice: int | str, valid_choices: list, case_sensitive: bool = True) -> Optional[int]:
+    if not case_sensitive and isinstance(user_choice, str):
+        user_choice = user_choice.lower()
     for choice_group in valid_choices:
         if user_choice in choice_group:
             return choice_group.index(user_choice)
     return None
 
 
-def _get_2d_choice_index(user_choice: int | str, valid_choices: list) -> Optional[int]:
+def _get_2d_choice_index(user_choice: int | str, valid_choices: list, case_sensitive: bool = True) -> Optional[int]:
     def is_nested_list(lst: list) -> bool:
         return any(isinstance(item, list) for item in lst)
 
+    if not case_sensitive and isinstance(user_choice, str):
+        user_choice = user_choice.lower()
     for choice_group in valid_choices:
         if is_nested_list(choice_group):
             for subgroup in choice_group:
